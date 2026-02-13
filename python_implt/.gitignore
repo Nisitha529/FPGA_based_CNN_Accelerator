@@ -1,0 +1,15 @@
+# Virtual environment
+cnn_mnist_env/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model weights / generated memory files (optional)
+*.pt
+*.mem
+*.bmp
+data/
