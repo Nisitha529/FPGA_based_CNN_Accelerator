@@ -1,20 +1,3 @@
-/*------------------------------------------------------------------------
- *
- *  Copyright (c) 2021 by Bo Young Kang, All rights reserved.
- *
- *  File name  : conv1_calc.v
- *  Written by : Kang, Bo Young, weenslab
- *  Written on : Oct 1, 2021
- *  Version    : 22
- *  Design     : 1st Convolution Layer for CNN MNIST dataset
- *               Convolution Sum Calculation
- *
- *------------------------------------------------------------------------*/
-
-/*-------------------------------------------------------------------
- *  Module: conv1_calc
- *------------------------------------------------------------------*/
-
 module conv1_calc
     #(
         parameter WIDTH     = 28,
@@ -149,8 +132,7 @@ module conv1_calc
     reg valid_out_buf_tmp2;
     reg valid_out_buf_tmp3;
 
-    initial
-    begin
+    initial begin
         $readmemh("conv1_weight_1.mem", weight_1);
         $readmemh("conv1_weight_2.mem", weight_2);
         $readmemh("conv1_weight_3.mem", weight_3);
@@ -192,10 +174,8 @@ module conv1_calc
     // -----------------------------------------------------------------
     // Multi stage multiplication and addition for out_1
     // -----------------------------------------------------------------
-    always @(posedge clk) // Stage 1
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_1_tmp0  <= 0;
             calc_out_1_tmp1  <= 0;
             calc_out_1_tmp2  <= 0;
@@ -209,9 +189,7 @@ module conv1_calc
             calc_out_1_tmp10 <= 0;
             calc_out_1_tmp11 <= 0;
             calc_out_1_tmp12 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_1_tmp0  <= exp_data[0]  * weight_1[0]  + exp_data[1]  * weight_1[1];
             calc_out_1_tmp1  <= exp_data[2]  * weight_1[2]  + exp_data[3]  * weight_1[3];
             calc_out_1_tmp2  <= exp_data[4]  * weight_1[4]  + exp_data[5]  * weight_1[5];
@@ -228,19 +206,15 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 2
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_1_tmp13 <= 0;
             calc_out_1_tmp14 <= 0;
             calc_out_1_tmp15 <= 0;
             calc_out_1_tmp16 <= 0;
             calc_out_1_tmp17 <= 0;
             calc_out_1_tmp18 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_1_tmp13 <= calc_out_1_tmp0  + calc_out_1_tmp1;
             calc_out_1_tmp14 <= calc_out_1_tmp2  + calc_out_1_tmp3;
             calc_out_1_tmp15 <= calc_out_1_tmp4  + calc_out_1_tmp5;
@@ -250,24 +224,19 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 3
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_1_tmp19 <= 0;
             calc_out_1_tmp20 <= 0;
             calc_out_1_tmp21 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_1_tmp19 <= calc_out_1_tmp13 + calc_out_1_tmp14;
             calc_out_1_tmp20 <= calc_out_1_tmp15 + calc_out_1_tmp16;
             calc_out_1_tmp21 <= calc_out_1_tmp17 + calc_out_1_tmp18;
         end
     end
 
-    always @(posedge clk) // Stage 4
-    begin
+    always @(posedge clk) begin
         if (~rst_n)
             calc_out_1_tmp22 <= 0;
         else
@@ -279,10 +248,8 @@ module conv1_calc
     // -----------------------------------------------------------------
     // Multi stage multiplication and addition for out_2
     // -----------------------------------------------------------------
-    always @(posedge clk) // Stage 1
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_2_tmp0  <= 0;
             calc_out_2_tmp1  <= 0;
             calc_out_2_tmp2  <= 0;
@@ -296,9 +263,7 @@ module conv1_calc
             calc_out_2_tmp10 <= 0;
             calc_out_2_tmp11 <= 0;
             calc_out_2_tmp12 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_2_tmp0  <= exp_data[0]  * weight_2[0]  + exp_data[1]  * weight_2[1];
             calc_out_2_tmp1  <= exp_data[2]  * weight_2[2]  + exp_data[3]  * weight_2[3];
             calc_out_2_tmp2  <= exp_data[4]  * weight_2[4]  + exp_data[5]  * weight_2[5];
@@ -315,19 +280,15 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 2
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_2_tmp13 <= 0;
             calc_out_2_tmp14 <= 0;
             calc_out_2_tmp15 <= 0;
             calc_out_2_tmp16 <= 0;
             calc_out_2_tmp17 <= 0;
             calc_out_2_tmp18 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_2_tmp13 <= calc_out_2_tmp0  + calc_out_2_tmp1;
             calc_out_2_tmp14 <= calc_out_2_tmp2  + calc_out_2_tmp3;
             calc_out_2_tmp15 <= calc_out_2_tmp4  + calc_out_2_tmp5;
@@ -337,24 +298,19 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 3
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_2_tmp19 <= 0;
             calc_out_2_tmp20 <= 0;
             calc_out_2_tmp21 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_2_tmp19 <= calc_out_2_tmp13 + calc_out_2_tmp14;
             calc_out_2_tmp20 <= calc_out_2_tmp15 + calc_out_2_tmp16;
             calc_out_2_tmp21 <= calc_out_2_tmp17 + calc_out_2_tmp18;
         end
     end
 
-    always @(posedge clk) // Stage 4
-    begin
+    always @(posedge clk) begin
         if (~rst_n)
             calc_out_2_tmp22 <= 0;
         else
@@ -366,10 +322,8 @@ module conv1_calc
     // -----------------------------------------------------------------
     // Multi stage multiplication and addition for out_3
     // -----------------------------------------------------------------
-    always @(posedge clk) // Stage 1
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_3_tmp0  <= 0;
             calc_out_3_tmp1  <= 0;
             calc_out_3_tmp2  <= 0;
@@ -383,9 +337,7 @@ module conv1_calc
             calc_out_3_tmp10 <= 0;
             calc_out_3_tmp11 <= 0;
             calc_out_3_tmp12 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_3_tmp0  <= exp_data[0]  * weight_3[0]  + exp_data[1]  * weight_3[1];
             calc_out_3_tmp1  <= exp_data[2]  * weight_3[2]  + exp_data[3]  * weight_3[3];
             calc_out_3_tmp2  <= exp_data[4]  * weight_3[4]  + exp_data[5]  * weight_3[5];
@@ -402,19 +354,15 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 2
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_3_tmp13 <= 0;
             calc_out_3_tmp14 <= 0;
             calc_out_3_tmp15 <= 0;
             calc_out_3_tmp16 <= 0;
             calc_out_3_tmp17 <= 0;
             calc_out_3_tmp18 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_3_tmp13 <= calc_out_3_tmp0  + calc_out_3_tmp1;
             calc_out_3_tmp14 <= calc_out_3_tmp2  + calc_out_3_tmp3;
             calc_out_3_tmp15 <= calc_out_3_tmp4  + calc_out_3_tmp5;
@@ -424,24 +372,19 @@ module conv1_calc
         end
     end
 
-    always @(posedge clk) // Stage 3
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             calc_out_3_tmp19 <= 0;
             calc_out_3_tmp20 <= 0;
             calc_out_3_tmp21 <= 0;
-        end
-        else
-        begin
+        end else begin
             calc_out_3_tmp19 <= calc_out_3_tmp13 + calc_out_3_tmp14;
             calc_out_3_tmp20 <= calc_out_3_tmp15 + calc_out_3_tmp16;
             calc_out_3_tmp21 <= calc_out_3_tmp17 + calc_out_3_tmp18;
         end
     end
 
-    always @(posedge clk) // Stage 4
-    begin
+    always @(posedge clk) begin
         if (~rst_n)
             calc_out_3_tmp22 <= 0;
         else
@@ -454,17 +397,13 @@ module conv1_calc
     assign conv_out_2 = calc_out_2[19:8] + exp_bias[1];
     assign conv_out_3 = calc_out_3[19:8] + exp_bias[2];
 
-    always @(posedge clk)
-    begin
-        if (~rst_n)
-        begin
+    always @(posedge clk) begin
+        if (~rst_n) begin
             valid_out_buf_tmp0 <= 0;
             valid_out_buf_tmp1 <= 0;
             valid_out_buf_tmp2 <= 0;
             valid_out_buf_tmp3 <= 0;
-        end
-        else
-        begin
+        end else begin
             valid_out_buf_tmp0 <= valid_out_buf;
             valid_out_buf_tmp1 <= valid_out_buf_tmp0;
             valid_out_buf_tmp2 <= valid_out_buf_tmp1;
