@@ -1,3 +1,5 @@
+// This modules implements a line buffer for a 28x28 image.
+
 module conv1_buf #(
   parameter integer WIDTH      = 28,
   parameter integer HEIGHT     = 28,
@@ -10,6 +12,7 @@ module conv1_buf #(
   input                      valid_in,
   input      [DATA_BITS-1:0] data_in,
 
+  // Window output for a 5x5 kernel window.
   output reg [DATA_BITS-1:0] data_out_0,
   output reg [DATA_BITS-1:0] data_out_1,
   output reg [DATA_BITS-1:0] data_out_2,
@@ -39,11 +42,17 @@ module conv1_buf #(
   output reg                 valid_out_buf
 );
 
+  // Circular buffer holding the most recent 5 rows (28 * 5) pixels.
+
   reg [DATA_BITS - 1 : 0] buffer [0 : WIDTH * FILTERSIZE - 1];
+
   reg [DATA_BITS - 1 : 0] buf_idx;
+
   reg [4 : 0]             w_idx;
   reg [4 : 0]             h_idx;
+
   reg [2 : 0]             buf_flag;
+
   reg                     state;
 
   integer i;
@@ -90,11 +99,16 @@ module conv1_buf #(
       if (valid_in) begin
         buf_idx     <= buf_idx + 1'd1;
 
+        // Write the incoming pixel data into circular buffer
+
         if (buf_idx == WIDTH * FILTERSIZE - 1) begin
           buf_idx <= {DATA_BITS{1'b0}};
         end
 
         buffer [buf_idx] <= data_in;
+
+
+        // Starting stream after the buffer is completely filled.
 
         if (!state) begin
           if (buf_idx == WIDTH * FILTERSIZE - 1) begin
