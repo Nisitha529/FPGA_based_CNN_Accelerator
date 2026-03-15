@@ -117,9 +117,14 @@ module conv1_buf #(
         end else begin
           w_idx   <= w_idx + 1'd1;
 
+          // Determine valid region: window is valid for columns 0..23
+
           if (w_idx == WIDTH - FILTERSIZE + 1) begin
             valid_out_buf <= 1'b0;
           end else if (w_idx == WIDTH - 1) begin
+
+            // End of a row: increment row counter and adjust buf_flag
+
             buf_flag      <= buf_flag + 1'd1;
 
             if (buf_flag == FILTERSIZE - 1) begin
@@ -128,6 +133,8 @@ module conv1_buf #(
 
             w_idx         <= 5'b0;
 
+            // Check if we have processed all rows that can produce a window
+
             if (h_idx == HEIGHT - FILTERSIZE) begin
               h_idx       <= 5'b0;
               state       <= 1'b0;
@@ -135,11 +142,14 @@ module conv1_buf #(
 
             h_idx         <= h_idx + 1'd1;
 
-          end else if (w_idx == 0) begin
+          end else if (w_idx == 0) begin // Start of a new row: begin valid window region
             valid_out_buf <= 1'b1;
           end
 
           if (buf_flag == 3'd0) begin
+
+            // Window rows: buffer rows 0,1,2,3,4 (relative to current write)
+
             data_out_0    <= buffer [w_idx                ];
             data_out_1    <= buffer [w_idx             + 1];
             data_out_2    <= buffer [w_idx             + 2];
@@ -169,7 +179,11 @@ module conv1_buf #(
             data_out_22   <= buffer [w_idx + WIDTH * 4 + 2];
             data_out_23   <= buffer [w_idx + WIDTH * 4 + 3];
             data_out_24   <= buffer [w_idx + WIDTH * 4 + 4];
+
           end else if (buf_flag == 3'd1) begin
+
+            // Window rows: buffer rows 1,2,3,4,0 (circular shift)
+
             data_out_0    <= buffer [w_idx + WIDTH        ];
             data_out_1    <= buffer [w_idx + WIDTH     + 1];
             data_out_2    <= buffer [w_idx + WIDTH     + 2];
@@ -199,7 +213,11 @@ module conv1_buf #(
             data_out_22   <= buffer [w_idx             + 2];
             data_out_23   <= buffer [w_idx             + 3];
             data_out_24   <= buffer [w_idx             + 4];
+
           end else if (buf_flag == 3'd2) begin
+
+            // Window rows: buffer rows 2,3,4,0,1
+
             data_out_0    <= buffer [w_idx + WIDTH * 2    ];
             data_out_1    <= buffer [w_idx + WIDTH * 2 + 1];
             data_out_2    <= buffer [w_idx + WIDTH * 2 + 2];
@@ -229,7 +247,11 @@ module conv1_buf #(
             data_out_22   <= buffer [w_idx + WIDTH     + 2];
             data_out_23   <= buffer [w_idx + WIDTH     + 3];
             data_out_24   <= buffer [w_idx + WIDTH     + 4];
+
           end else if (buf_flag == 3'd3) begin
+
+            // Window rows: buffer rows 3,4,0,1,2
+
             data_out_0    <= buffer [w_idx + WIDTH * 3    ];
             data_out_1    <= buffer [w_idx + WIDTH * 3 + 1];
             data_out_2    <= buffer [w_idx + WIDTH * 3 + 2];
@@ -259,7 +281,11 @@ module conv1_buf #(
             data_out_22   <= buffer [w_idx + WIDTH * 2 + 2];
             data_out_23   <= buffer [w_idx + WIDTH * 2 + 3];
             data_out_24   <= buffer [w_idx + WIDTH * 2 + 4];
+
           end else if (buf_flag == 3'd4) begin
+
+            // Window rows: buffer rows 4,0,1,2,3
+            
             data_out_0    <= buffer [w_idx + WIDTH * 4    ];
             data_out_1    <= buffer [w_idx + WIDTH * 4 + 1];
             data_out_2    <= buffer [w_idx + WIDTH * 4 + 2];
