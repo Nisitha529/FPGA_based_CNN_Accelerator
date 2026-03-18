@@ -1,7 +1,7 @@
 // This module performs a convolution of three 5x5 input windows with three separate 5x5 filters.
 // Eventually release one convolutional value.
 
-module conv1_calc #(
+module conv2_calc #(
 	parameter WIDTH     = 28,
 	parameter HEIGHT    = 28,
 	parameter DATA_BITS = 12,
