@@ -40,7 +40,7 @@ module conv2_buf #(
 
 	// Circular buffer holding the most recent 5 rows (12 * 5) pixels.
 
-	reg [DATA_BITS-1:0] buffer [0:WIDTH*FILTER_SIZE-1];
+	reg [DATA_BITS-1:0] buffer [0:WIDTH*FILTERSIZE-1];
 
 	reg [DATA_BITS-1:0] buf_idx;          
 
@@ -55,7 +55,7 @@ module conv2_buf #(
 
 	always @(posedge clk) begin
 		if (~rst_n) begin
-			for (i = 0; i <= WIDTH * FILTER_SIZE - 1; i = i + 1) begin
+			for (i = 0; i <= WIDTH * FILTERSIZE - 1; i = i + 1) begin
 					buffer[i] <= {DATA_BITS{1'b0}};
 			end
 
@@ -97,7 +97,7 @@ module conv2_buf #(
 
 				// Write the incoming pixel data into circular buffer
 
-				if (buf_idx == WIDTH * FILTER_SIZE - 1) begin
+				if (buf_idx == WIDTH * FILTERSIZE - 1) begin
 					buf_idx <= {DATA_BITS{1'b0}};
 				end
 
@@ -107,7 +107,7 @@ module conv2_buf #(
 				// Starting stream after the buffer is completely filled.
 
 				if (!state) begin
-						if (buf_idx == WIDTH * FILTER_SIZE - 1) begin
+						if (buf_idx == WIDTH * FILTERSIZE - 1) begin
 								state <= 1'b1;
 						end
 				end else begin
@@ -117,24 +117,24 @@ module conv2_buf #(
 
 					if (w_idx == 0) begin
 						valid_out_buf <= 1'b1;                     
-					end else if (w_idx == WIDTH - FILTER_SIZE + 1)
+					end else if (w_idx == WIDTH - FILTERSIZE + 1)
 						valid_out_buf <= 1'b0;                     
 
 					if (w_idx == WIDTH - 1) begin                  // end of a row
 						buf_flag      <= buf_flag + 1'b1;
 						
-						if (buf_flag == FILTER_SIZE - 1) begin
+						if (buf_flag == FILTERSIZE - 1) begin
 							buf_flag    <= 3'b0;
 						end
 
 						w_idx         <= 5'b0;
 
-						if (h_idx == HEIGHT - FILTER_SIZE) begin    // last row of windows
+						if (h_idx == HEIGHT - FILTERSIZE) begin    // last row of windows
 								h_idx     <= 5'b0;
 								state     <= 1'b0;                      // processing finished
-						end else begin
-								h_idx     <= h_idx + 1'b1;
-						end
+						end 
+						h_idx         <= h_idx + 1'b1;
+						
 					end
 
 					if (buf_flag == 3'd0) begin

@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module axis_cnn_mnist(
-  input               clk,
+  input               aclk,
   input               aresetn,
 
   output wire         s_axis_tready,
   input  wire [7 : 0] s_axis_tdata,
   input  wire         s_axis_tvalid,
-  input  wire         s_axis_tlast,
+  // input  wire         s_axis_tlast,
 
   input  wire         m_axis_tready,
   output wire [7 : 0] m_axis_tdata,
@@ -18,7 +18,7 @@ module axis_cnn_mnist(
   reg         [7 : 0]  s_axis_tdata_reg;
   reg                  s_axis_tvalid_reg;
 
-  reg         [10 : 0] cnt_sequncer_reg;
+  reg         [10 : 0] cnt_sequencer_reg;
 
   wire signed [11 : 0] conv_out_1;
   wire signed [11 : 0] conv_out_2;
@@ -107,10 +107,10 @@ module axis_cnn_mnist(
 
   maxpool_relu # (
     .CONV_BIT        (12),
-    .HALF_WIDTH      (12),
-    .HALF_HEIGHT     (12),
-    .HALF_WIDTH_BIT  (4)
-  ) maxpool_relu_01 (
+    .HALF_WIDTH      (4),
+    .HALF_HEIGHT     (4),
+    .HALF_WIDTH_BIT  (3)
+  ) maxpool_relu_02 (
     .clk             (aclk),
     .rst_n           (aresetn & clr),
 
@@ -146,6 +146,17 @@ module axis_cnn_mnist(
     .valid_out_fc    (valid_out_5)
   );
 
+  comparator comparator_01 (
+    .clk             (aclk),
+    .rst_n           (aresetn & clr),
+
+    .valid_in        (valid_out_5),
+    .data_in         (fc_out_data),
+
+    .decision        (decision),
+    .valid_out       (valid_out_6)
+  );
+
   // Pipelining the input
   always @ (posedge aclk) begin
     if (!aresetn) begin
@@ -169,13 +180,13 @@ module axis_cnn_mnist(
   // Counter sequencer as a global FSM
   always @ (posedge aclk) begin
     if (!aresetn) begin
-      cnt_sequncer_reg <= 0;
+      cnt_sequencer_reg <= 0;
     end else if (s_axis_tvalid_tick) begin
-      cnt_sequncer_reg <= cnt_sequncer_reg + 1;
-    end else if (cnt_sequncer_reg >= 1 && cnt_sequncer_reg <= 1280) begin
-      cnt_sequncer_reg <= cnt_sequncer_reg + 1;
-    end else if (cnt_sequncer_reg > 1281) begin
-      cnt_sequncer_reg <= 0;
+      cnt_sequencer_reg <= cnt_sequencer_reg + 1;
+    end else if (cnt_sequencer_reg >= 1 && cnt_sequencer_reg <= 1280) begin
+      cnt_sequencer_reg <= cnt_sequencer_reg + 1;
+    end else if (cnt_sequencer_reg >= 1281) begin
+      cnt_sequencer_reg <= 0;
     end
   end
 
