@@ -1,6 +1,7 @@
 module conv2_layer (
 	input  wire        clk,              
-	input  wire        rst_n,             
+	input  wire        rst_n,   
+
 	input  wire        valid_in,          
 	
 	input  wire [11:0] max_value_1,
@@ -10,6 +11,7 @@ module conv2_layer (
 	output wire [11:0] conv2_out_1,
 	output wire [11:0] conv2_out_2,
 	output wire [11:0] conv2_out_3,
+	
 	output wire        valid_out_conv2    
 );
 
@@ -20,7 +22,7 @@ module conv2_layer (
 	wire [11:0] data_out1_2; 
 	wire [11:0] data_out1_3; 
 	wire [11:0] data_out1_4;
-    wire [11:0] data_out1_5; 
+  wire [11:0] data_out1_5; 
 	wire [11:0] data_out1_6; 
 	wire [11:0] data_out1_7; 
 	wire [11:0] data_out1_8; 

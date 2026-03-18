@@ -5,6 +5,7 @@ module fully_connected #(
 )(
   input                       clk,
 	input                       rst_n,
+	
 	input  wire                 valid_in,
 
   input  wire signed [11 : 0] data_in_1,
