@@ -1,4 +1,4 @@
- module compartor (
+ module comparator (
     
   input  wire          clk,
   input  wire          rst_n,

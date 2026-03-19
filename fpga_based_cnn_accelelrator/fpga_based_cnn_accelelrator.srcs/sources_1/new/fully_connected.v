@@ -1,124 +1,124 @@
 module fully_connected #(
-	parameter INPUT_NUM  = 48,
-	parameter OUTPUT_NUM = 10,
-	parameter DATA_BITS  = 8
+  parameter INPUT_NUM  = 48,
+  parameter OUTPUT_NUM = 10,
+  parameter DATA_BITS  = 8
 )(
   input                       clk,
-	input                       rst_n,
+  input                       rst_n,
 	
-	input  wire                 valid_in,
+  input  wire                 valid_in,
 
   input  wire signed [11 : 0] data_in_1,
-	input  wire signed [11 : 0] data_in_2,
-	input  wire signed [11 : 0] data_in_3,
+  input  wire signed [11 : 0] data_in_2,
+  input  wire signed [11 : 0] data_in_3,
 
-	output wire        [11 : 0] data_out,
+  output wire        [11 : 0] data_out,
 
-	output wire                 valid_out_fc
+  output wire                 valid_out_fc
 );
 
   localparam INPUT_WIDTH         = 16;
-	localparam INPUT_NUM_DATA_BITS = 5;
+  localparam INPUT_NUM_DATA_BITS = 5;
  
-	reg                               state;
-	reg         [INPUT_WIDTH - 1 : 0] buf_idx;
-	reg         [3 : 0]               out_idx;
+  reg                               state;
+  reg         [INPUT_WIDTH - 1 : 0] buf_idx;
+  reg         [3 : 0]               out_idx;
 
-	// Storage for the input data
-	reg  signed [13 : 0]              buffer [0 : INPUT_NUM - 1];
+  // Storage for the input data
+  reg  signed [13 : 0]              buffer [0 : INPUT_NUM - 1];
 
-	reg  signed [DATA_BITS - 1 : 0]   weight [0 : INPUT_NUM * OUTPUT_NUM - 1];
-	reg  signed [DATA_BITS - 1 : 0]   bias   [0 : OUTPUT_NUM - 1];
+  reg  signed [DATA_BITS - 1 : 0]   weight [0 : INPUT_NUM * OUTPUT_NUM - 1];
+  reg  signed [DATA_BITS - 1 : 0]   bias   [0 : OUTPUT_NUM - 1];
 
   // Pipelined multiplier-adder tree
-	reg  signed [19 : 0] calc_out_tmp0;
-	reg  signed [19 : 0] calc_out_tmp1;
-	reg  signed [19 : 0] calc_out_tmp2;
-	reg  signed [19 : 0] calc_out_tmp3;
-	reg  signed [19 : 0] calc_out_tmp4;
-	reg  signed [19 : 0] calc_out_tmp5;
-	reg  signed [19 : 0] calc_out_tmp6;
-	reg  signed [19 : 0] calc_out_tmp7;
-	reg  signed [19 : 0] calc_out_tmp8;
-	reg  signed [19 : 0] calc_out_tmp9;
-	reg  signed [19 : 0] calc_out_tmp10;
-	reg  signed [19 : 0] calc_out_tmp11;
-	reg  signed [19 : 0] calc_out_tmp12;
-	reg  signed [19 : 0] calc_out_tmp13;
-	reg  signed [19 : 0] calc_out_tmp14;
-	reg  signed [19 : 0] calc_out_tmp15;
-	reg  signed [19 : 0] calc_out_tmp16;
-	reg  signed [19 : 0] calc_out_tmp17;
-	reg  signed [19 : 0] calc_out_tmp18;
-	reg  signed [19 : 0] calc_out_tmp19;
-	reg  signed [19 : 0] calc_out_tmp20;
-	reg  signed [19 : 0] calc_out_tmp21;
-	reg  signed [19 : 0] calc_out_tmp22;
-	reg  signed [19 : 0] calc_out_tmp23;
-	reg  signed [19 : 0] calc_out_tmp24;
-	reg  signed [19 : 0] calc_out_tmp25;
-	reg  signed [19 : 0] calc_out_tmp26;
-	reg  signed [19 : 0] calc_out_tmp27;
-	reg  signed [19 : 0] calc_out_tmp28;
-	reg  signed [19 : 0] calc_out_tmp29;
-	reg  signed [19 : 0] calc_out_tmp30;
-	reg  signed [19 : 0] calc_out_tmp31;
-	reg  signed [19 : 0] calc_out_tmp32;
-	reg  signed [19 : 0] calc_out_tmp33;
-	reg  signed [19 : 0] calc_out_tmp34;
-	reg  signed [19 : 0] calc_out_tmp35;
-	reg  signed [19 : 0] calc_out_tmp36;
-	reg  signed [19 : 0] calc_out_tmp37;
-	reg  signed [19 : 0] calc_out_tmp38;
-	reg  signed [19 : 0] calc_out_tmp39;
-	reg  signed [19 : 0] calc_out_tmp40;
-	reg  signed [19 : 0] calc_out_tmp41;
-	reg  signed [19 : 0] calc_out_tmp42;
-	reg  signed [19 : 0] calc_out_tmp43;
-	reg  signed [19 : 0] calc_out_tmp44;
-	reg  signed [19 : 0] calc_out_tmp45;
-	reg  signed [19 : 0] calc_out_tmp46;
+  reg  signed [19 : 0] calc_out_tmp0;
+  reg  signed [19 : 0] calc_out_tmp1;
+  reg  signed [19 : 0] calc_out_tmp2;
+  reg  signed [19 : 0] calc_out_tmp3;
+  reg  signed [19 : 0] calc_out_tmp4;
+  reg  signed [19 : 0] calc_out_tmp5;
+  reg  signed [19 : 0] calc_out_tmp6;
+  reg  signed [19 : 0] calc_out_tmp7;
+  reg  signed [19 : 0] calc_out_tmp8;
+  reg  signed [19 : 0] calc_out_tmp9;
+  reg  signed [19 : 0] calc_out_tmp10;
+  reg  signed [19 : 0] calc_out_tmp11;
+  reg  signed [19 : 0] calc_out_tmp12;
+  reg  signed [19 : 0] calc_out_tmp13;
+  reg  signed [19 : 0] calc_out_tmp14;
+  reg  signed [19 : 0] calc_out_tmp15;
+  reg  signed [19 : 0] calc_out_tmp16;
+  reg  signed [19 : 0] calc_out_tmp17;
+  reg  signed [19 : 0] calc_out_tmp18;
+  reg  signed [19 : 0] calc_out_tmp19;
+  reg  signed [19 : 0] calc_out_tmp20;
+  reg  signed [19 : 0] calc_out_tmp21;
+  reg  signed [19 : 0] calc_out_tmp22;
+  reg  signed [19 : 0] calc_out_tmp23;
+  reg  signed [19 : 0] calc_out_tmp24;
+  reg  signed [19 : 0] calc_out_tmp25;
+  reg  signed [19 : 0] calc_out_tmp26;
+  reg  signed [19 : 0] calc_out_tmp27;
+  reg  signed [19 : 0] calc_out_tmp28;
+  reg  signed [19 : 0] calc_out_tmp29;
+  reg  signed [19 : 0] calc_out_tmp30;
+  reg  signed [19 : 0] calc_out_tmp31;
+  reg  signed [19 : 0] calc_out_tmp32;
+  reg  signed [19 : 0] calc_out_tmp33;
+  reg  signed [19 : 0] calc_out_tmp34;
+  reg  signed [19 : 0] calc_out_tmp35;
+  reg  signed [19 : 0] calc_out_tmp36;
+  reg  signed [19 : 0] calc_out_tmp37;
+  reg  signed [19 : 0] calc_out_tmp38;
+  reg  signed [19 : 0] calc_out_tmp39;
+  reg  signed [19 : 0] calc_out_tmp40;
+  reg  signed [19 : 0] calc_out_tmp41;
+  reg  signed [19 : 0] calc_out_tmp42;
+  reg  signed [19 : 0] calc_out_tmp43;
+  reg  signed [19 : 0] calc_out_tmp44;
+  reg  signed [19 : 0] calc_out_tmp45;
+  reg  signed [19 : 0] calc_out_tmp46;
 
-	reg                  valid_out_fc_tmp0;
-	reg                  valid_out_fc_tmp1;
-	reg                  valid_out_fc_tmp2;
-	reg                  valid_out_fc_tmp3;
-	reg                  valid_out_fc_tmp4;
-	reg                  valid_out_fc_tmp5;
+  reg                  valid_out_fc_tmp0;
+  reg                  valid_out_fc_tmp1;
+  reg                  valid_out_fc_tmp2;
+  reg                  valid_out_fc_tmp3;
+  reg                  valid_out_fc_tmp4;
+  reg                  valid_out_fc_tmp5;
 
-	wire signed [19 : 0] calc_out;
+  wire signed [19 : 0] calc_out;
 
-	// Input extension, from 12 bits to 14 bits to fit into buffer width
-	wire signed [13 : 0] data1;
-	wire signed [13 : 0] data2;
-	wire signed [13 : 0] data3;
+  // Input extension, from 12 bits to 14 bits to fit into buffer width
+  wire signed [13 : 0] data1;
+  wire signed [13 : 0] data2;
+  wire signed [13 : 0] data3;
 
-	integer i;
+  integer i;
 
-	initial begin
-		$readmemh("fc_weight.mem", weight);
-		$readmemh("fc_bias.mem", bias);
-	end
+  initial begin
+    $readmemh("fc_weight.mem", weight);
+	$readmemh("fc_bias.mem", bias);
+  end
 
-	assign data1 = (data_in_1[11] == 1) ? {2'b11, data_in_1} : {2'b00, data_in_1};
-	assign data2 = (data_in_2[11] == 1) ? {2'b11, data_in_2} : {2'b00, data_in_2};
-	assign data3 = (data_in_3[11] == 1) ? {2'b11, data_in_3} : {2'b00, data_in_3};
+  assign data1 = (data_in_1[11] == 1) ? {2'b11, data_in_1} : {2'b00, data_in_1};
+  assign data2 = (data_in_2[11] == 1) ? {2'b11, data_in_2} : {2'b00, data_in_2};
+  assign data3 = (data_in_3[11] == 1) ? {2'b11, data_in_3} : {2'b00, data_in_3};
 
   always @ (posedge clk) begin
-		if (~rst_n) begin
-			for (i = 0; i <= INPUT_NUM - 1; i = i + 1) begin
-				buffer[i]         <= 14'd0;
-			end
+    if (~rst_n) begin
+	  for (i = 0; i <= INPUT_NUM - 1; i = i + 1) begin
+	    buffer[i]         <= 14'd0;
+	  end
 
       valid_out_fc_tmp0   <= 1'b0;
-			buf_idx             <= 16'd0;
-			out_idx             <= 4'd0;
-			state               <= 1'd0;
+	  buf_idx             <= 16'd0;
+      out_idx             <= 4'd0;
+      state               <= 1'd0;
 
-		end else begin
-		  if (valid_out_fc_tmp0 == 1)	 begin
-				valid_out_fc_tmp0 <= 1'b0;
-			end
+      end else begin
+        if (valid_out_fc_tmp0 == 1) begin
+          valid_out_fc_tmp0 <= 1'b0;
+        end
 
 			if (valid_in == 1) begin
 				if (!state) begin                                       // Data filling phase 
