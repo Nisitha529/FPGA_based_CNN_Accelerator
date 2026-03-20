@@ -1,0 +1,26 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto a94173a97a804e29ad08aa9939c7282f --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot axis_cnn_mnist_1000_tb_behav xil_defaultlib.axis_cnn_mnist_1000_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.conv1_buf
+Compiling module xil_defaultlib.conv1_calc
+Compiling module xil_defaultlib.conv1_layer
+Compiling module xil_defaultlib.maxpool_relu
+Compiling module xil_defaultlib.conv2_buf
+Compiling module xil_defaultlib.conv2_calc
+Compiling module xil_defaultlib.conv2_calc(WEIGHT_1="conv2_weigh...
+Compiling module xil_defaultlib.conv2_calc(WEIGHT_1="conv2_weigh...
+Compiling module xil_defaultlib.conv2_layer
+Compiling module xil_defaultlib.maxpool_relu(HALF_WIDTH=4,HALF_W...
+Compiling module xil_defaultlib.fully_connected
+Compiling module xil_defaultlib.comparator
+Compiling module xil_defaultlib.axis_cnn_mnist
+Compiling module xil_defaultlib.axis_cnn_mnist_1000_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot axis_cnn_mnist_1000_tb_behav

@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/axis_cnn_mnist.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/comparator.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv1_buf.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv1_calc.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv1_layer.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv2_buf.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv2_calc.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/conv2_layer.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/fully_connected.v" \
+"../../../../../../../../../Windows-SSD/Users/LOQ/Downloads/cnn_mnist/cnn_mnist/rtl_pipelined/rtl/module/maxpool_relu.v" \
+"../../../../../fpga_based_cnn_accelelrator/fpga_based_cnn_accelelrator.srcs/sim_1/new/cnn_mnist/tb_axi_cnn.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
