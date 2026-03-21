@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../fpga_based_cnn_accelelrator/fpga_based_cnn_accelelrator.srcs/sources_1/new/maxpool_relu.v" \
+
+sv xil_defaultlib  \
+"../../../../../fpga_based_cnn_accelelrator/fpga_based_cnn_accelelrator.srcs/sim_1/new/maxpooling_relu/tb_maxpool_relu.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -1,7 +1,7 @@
-Running: xsim.dir/axis_cnn_mnist_1000_tb_behav/xsimk -simmode gui -wdb axis_cnn_mnist_1000_tb_behav.wdb -simrunnum 0 -socket 50131
+Running: xsim.dir/axis_cnn_mnist_1000_tb_behav/xsimk -simmode gui -wdb axis_cnn_mnist_1000_tb_behav.wdb -simrunnum 0 -socket 47745
 Design successfully loaded
-Design Loading Memory Usage: 36196 KB (Peak: 36196 KB)
+Design Loading Memory Usage: 36208 KB (Peak: 36208 KB)
 Design Loading CPU Usage: 10 ms
 Simulation completed
-Simulation Memory Usage: 125748 KB (Peak: 175464 KB)
-Simulation CPU Usage: 36050 ms
+Simulation Memory Usage: 125760 KB (Peak: 175476 KB)
+Simulation CPU Usage: 290 ms

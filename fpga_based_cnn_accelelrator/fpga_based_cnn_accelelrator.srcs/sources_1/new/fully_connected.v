@@ -209,7 +209,7 @@ module fully_connected #(
 			end
   end
 
-	// Stage 2: sum the 24 pair‑wise results into 12 intermediate sums
+	// Stage 2: sum the 24 pair-wise results into 12 intermediate sums
 	always @(posedge clk) begin
 		if (~rst_n) begin
 			calc_out_tmp25 <= 0;

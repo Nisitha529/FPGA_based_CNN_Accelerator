@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="4510001fs"></ZoomEndTime>
+      <Cursor1Time time="5480897fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="157"></NameColumnWidth>
+      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="3" />
+   <wvobject type="group" fp_name="group1722">
+      <obj_property name="label">tb_top</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/tb_top/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/pixels">
+         <obj_property name="ElementShortName">pixels[0:783][7:0]</obj_property>
+         <obj_property name="ObjectShortName">pixels[0:783][7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/img_idx">
+         <obj_property name="ElementShortName">img_idx[9:0]</obj_property>
+         <obj_property name="ObjectShortName">img_idx[9:0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/data_in">
+         <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_in">
+         <obj_property name="ElementShortName">valid_in</obj_property>
+         <obj_property name="ObjectShortName">valid_in</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv_out_1">
+         <obj_property name="ElementShortName">conv_out_1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_1[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv_out_2">
+         <obj_property name="ElementShortName">conv_out_2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_2[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv_out_3">
+         <obj_property name="ElementShortName">conv_out_3[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_3[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv2_out_1">
+         <obj_property name="ElementShortName">conv2_out_1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv2_out_1[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv2_out_2">
+         <obj_property name="ElementShortName">conv2_out_2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv2_out_2[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv2_out_3">
+         <obj_property name="ElementShortName">conv2_out_3[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv2_out_3[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max_value_1">
+         <obj_property name="ElementShortName">max_value_1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max_value_1[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max_value_2">
+         <obj_property name="ElementShortName">max_value_2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max_value_2[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max_value_3">
+         <obj_property name="ElementShortName">max_value_3[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max_value_3[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max2_value_1">
+         <obj_property name="ElementShortName">max2_value_1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max2_value_1[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max2_value_2">
+         <obj_property name="ElementShortName">max2_value_2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max2_value_2[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/max2_value_3">
+         <obj_property name="ElementShortName">max2_value_3[11:0]</obj_property>
+         <obj_property name="ObjectShortName">max2_value_3[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/fc_out_data">
+         <obj_property name="ElementShortName">fc_out_data[11:0]</obj_property>
+         <obj_property name="ObjectShortName">fc_out_data[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/decision">
+         <obj_property name="ElementShortName">decision[3:0]</obj_property>
+         <obj_property name="ObjectShortName">decision[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_1">
+         <obj_property name="ElementShortName">valid_out_1</obj_property>
+         <obj_property name="ObjectShortName">valid_out_1</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_2">
+         <obj_property name="ElementShortName">valid_out_2</obj_property>
+         <obj_property name="ObjectShortName">valid_out_2</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_3">
+         <obj_property name="ElementShortName">valid_out_3</obj_property>
+         <obj_property name="ObjectShortName">valid_out_3</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_4">
+         <obj_property name="ElementShortName">valid_out_4</obj_property>
+         <obj_property name="ObjectShortName">valid_out_4</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_5">
+         <obj_property name="ElementShortName">valid_out_5</obj_property>
+         <obj_property name="ObjectShortName">valid_out_5</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/valid_out_6">
+         <obj_property name="ElementShortName">valid_out_6</obj_property>
+         <obj_property name="ObjectShortName">valid_out_6</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1749">
+      <obj_property name="label">conv1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/tb_top/conv1_layer/clk">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/img_idx">
+         <obj_property name="ElementShortName">img_idx[9:0]</obj_property>
+         <obj_property name="ObjectShortName">img_idx[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/conv1_layer/rst_n">
+         <obj_property name="ElementShortName">rst_n</obj_property>
+         <obj_property name="ObjectShortName">rst_n</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/conv1_layer/valid_in">
+         <obj_property name="ElementShortName">valid_in</obj_property>
+         <obj_property name="ObjectShortName">valid_in</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_in">
+         <obj_property name="ElementShortName">data_in[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_in[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/conv_out_1">
+         <obj_property name="ElementShortName">conv_out_1[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_1[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/conv_out_2">
+         <obj_property name="ElementShortName">conv_out_2[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_2[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/conv_out_3">
+         <obj_property name="ElementShortName">conv_out_3[11:0]</obj_property>
+         <obj_property name="ObjectShortName">conv_out_3[11:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/conv1_layer/valid_out_conv">
+         <obj_property name="ElementShortName">valid_out_conv</obj_property>
+         <obj_property name="ObjectShortName">valid_out_conv</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_0">
+         <obj_property name="ElementShortName">data_out_0[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_0[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_1">
+         <obj_property name="ElementShortName">data_out_1[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_1[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_2">
+         <obj_property name="ElementShortName">data_out_2[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_2[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_3">
+         <obj_property name="ElementShortName">data_out_3[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_3[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_4">
+         <obj_property name="ElementShortName">data_out_4[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_4[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_5">
+         <obj_property name="ElementShortName">data_out_5[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_5[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_6">
+         <obj_property name="ElementShortName">data_out_6[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_6[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_7">
+         <obj_property name="ElementShortName">data_out_7[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_7[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_8">
+         <obj_property name="ElementShortName">data_out_8[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_8[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_9">
+         <obj_property name="ElementShortName">data_out_9[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_9[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_10">
+         <obj_property name="ElementShortName">data_out_10[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_10[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_11">
+         <obj_property name="ElementShortName">data_out_11[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_11[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_12">
+         <obj_property name="ElementShortName">data_out_12[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_12[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_13">
+         <obj_property name="ElementShortName">data_out_13[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_13[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_14">
+         <obj_property name="ElementShortName">data_out_14[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_14[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_15">
+         <obj_property name="ElementShortName">data_out_15[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_15[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_16">
+         <obj_property name="ElementShortName">data_out_16[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_16[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_17">
+         <obj_property name="ElementShortName">data_out_17[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_17[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_18">
+         <obj_property name="ElementShortName">data_out_18[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_18[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_19">
+         <obj_property name="ElementShortName">data_out_19[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_19[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_20">
+         <obj_property name="ElementShortName">data_out_20[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_20[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_21">
+         <obj_property name="ElementShortName">data_out_21[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_21[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_22">
+         <obj_property name="ElementShortName">data_out_22[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_22[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_23">
+         <obj_property name="ElementShortName">data_out_23[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_23[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/tb_top/conv1_layer/data_out_24">
+         <obj_property name="ElementShortName">data_out_24[7:0]</obj_property>
+         <obj_property name="ObjectShortName">data_out_24[7:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/tb_top/conv1_layer/valid_out_buf">
+         <obj_property name="ElementShortName">valid_out_buf</obj_property>
+         <obj_property name="ObjectShortName">valid_out_buf</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1750">
+      <obj_property name="label">maxpool</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

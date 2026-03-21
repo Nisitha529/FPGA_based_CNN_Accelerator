@@ -126,12 +126,12 @@ module conv2_layer (
 			$readmemh("conv2_bias.mem", bias);   // load 3 biases from file
 	end
 
-	// Sign‑extend 8‑bit bias to 12 bits
+	// Sign-extend 8-bit bias to 12 bits
 	assign exp_bias[0]     = (bias[0][7] == 1) ? {4'b1111, bias[0]} : {4'b0000, bias[0]};
 	assign exp_bias[1]     = (bias[1][7] == 1) ? {4'b1111, bias[1]} : {4'b0000, bias[1]};
 	assign exp_bias[2]     = (bias[2][7] == 1) ? {4'b1111, bias[2]} : {4'b0000, bias[2]};
 
-	// Final output: truncate the 14‑bit accumulator to 12 bits (bits 13:1) and add the bias.
+	// Final output: truncate the 14-bit accumulator to 12 bits (bits 13:1) and add the bias.
 	assign conv2_out_1     = conv_out_1[13:1] + exp_bias[0];
 	assign conv2_out_2     = conv_out_2[13:1] + exp_bias[1];
 	assign conv2_out_3     = conv_out_3[13:1] + exp_bias[2];

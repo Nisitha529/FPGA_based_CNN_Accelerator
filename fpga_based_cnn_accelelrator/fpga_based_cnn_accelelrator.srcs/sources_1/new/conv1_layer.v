@@ -43,7 +43,12 @@ module conv1_layer (
 	wire valid_out_buf;
 
 	// Line buffer instance
-	conv1_buf conv1_buf (
+	conv1_buf # (
+	  .WIDTH      (28),
+	  .HEIGHT     (28),
+	  .DATA_BITS  (8),
+	  .FILTERSIZE (5)
+	) conv1_buf (
 		.clk           (clk),
 		.rst_n         (rst_n),
 
@@ -80,7 +85,11 @@ module conv1_layer (
 	);
 
 	// Convolution calculation instance
-	conv1_calc conv1_calc (
+	conv1_calc #(
+	  .WIDTH     (28),
+	  .HEIGHT    (28),
+	  .DATA_BITS (8)
+	) conv1_calc (
 		.clk            (clk),
 		.rst_n          (rst_n),
 

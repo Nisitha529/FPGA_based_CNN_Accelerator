@@ -11,7 +11,7 @@ module conv1_calc #(
 
 	input  wire                        valid_out_buf,
 
-  // 25 pixel values (8‑bit unsigned) forming a 5x5 window
+  // 25 pixel values (8-bit unsigned) forming a 5x5 window
 	input  wire        [DATA_BITS-1:0] data_out_0,
 	input  wire        [DATA_BITS-1:0] data_out_1,
 	input  wire        [DATA_BITS-1:0] data_out_2,
@@ -55,7 +55,7 @@ module conv1_calc #(
 	reg signed [DATA_BITS-1:0] weight_3 [0:FILTER_SIZE*FILTER_SIZE-1];
 	reg signed [DATA_BITS-1:0] bias     [0:CHANNEL_LEN-1];
 
-  // Pipeline registers for the three multiplier‑adder trees. Each tree has 4 stages, using 20‑bit signed accumulators to avoid overflow.
+  // Pipeline registers for the three multiplier-adder trees. Each tree has 4 stages, using 20-bit signed accumulators to avoid overflow.
 
 	// Filter 1 pipeline registers
 
@@ -145,11 +145,11 @@ module conv1_calc #(
 
 	wire signed [DATA_BITS:0] exp_data [0:FILTER_SIZE*FILTER_SIZE-1];
 
-  // Sign‑extended bias (12‑bit)
+  // Sign-extended bias (12-bit)
 
 	wire signed [11:0]        exp_bias [0:CHANNEL_LEN-1];
 
-	// Pipeline for the valid signal (4‑stage delay)
+	// Pipeline for the valid signal (4-stage delay)
 
 	reg valid_out_buf_tmp0;
 	reg valid_out_buf_tmp1;

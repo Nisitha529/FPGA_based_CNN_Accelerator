@@ -1,6 +1,6 @@
 `timescale 1ns / 10ps
 
-module axis_cnn_mnist_1000_tb();
+module tb_axis_cnn_mnist_full();
     localparam T = 10; // 100 MHz
 
     reg aclk;
@@ -57,7 +57,7 @@ module axis_cnn_mnist_1000_tb();
 
     initial
     begin
-        $readmemh("input_1000.txt", pixels);
+        $readmemh("/media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_accelelrator/fpga_based_cnn_accelelrator.srcs/sim_1/new/input_1000.txt", pixels);
 
         s_axis_tdata = 0;
         s_axis_tvalid = 0;

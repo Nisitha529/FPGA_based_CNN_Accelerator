@@ -2,11 +2,11 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Mar 20 01:13:03 2026
-# Process ID: 411914
+# Start of session at: Sat Mar 21 22:32:58 2026
+# Process ID: 7687
 # Current directory: /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/xsim.dir/axis_cnn_mnist_1000_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv -mode batch -source /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/xsim.dir/tb_axis_cnn_mnist_full_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/xsim.dir/axis_cnn_mnist_1000_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+source /media/nisitha/My_Passport/MOODLE/Vivado_projects/FPGA_based_CNN_Acclerator/fpga_based_cnn_v20/fpga_based_cnn_v20.sim/sim_1/behav/xsim/xsim.dir/tb_axis_cnn_mnist_full_behav/webtalk/xsim_webtalk.tcl -notrace

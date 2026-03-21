@@ -107,7 +107,7 @@ module conv2_calc #(
   reg signed  [7:0]  weight_2   [0:24];   
   reg signed  [7:0]  weight_3   [0:24];
 
- // Pipeline registers for the three multiplier‑adder trees. Each tree has 4 stages, using 20‑bit signed accumulators to avoid overflow.
+ // Pipeline registers for the three multiplier-adder trees. Each tree has 4 stages, using 20-bit signed accumulators to avoid overflow.
 
 	// Channel 1 pipeline registers
 
@@ -282,7 +282,7 @@ module conv2_calc #(
 
 	assign calc_out_1 = calc_out_1_tmp22;
 
-	// Multi‑stage multiplication and addition for channel 2
+	// Multi-stage multiplication and addition for channel 2
 
 	always @(posedge clk) begin
 		if (~rst_n) begin
@@ -356,7 +356,7 @@ module conv2_calc #(
 
 	assign calc_out_2 = calc_out_2_tmp22;	
 
-	// Multi‑stage multiplication and addition for channel 3 
+	// Multi-stage multiplication and addition for channel 3 
 
 	always @(posedge clk) begin
 		if (~rst_n) begin
